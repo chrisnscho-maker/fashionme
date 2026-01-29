@@ -27,6 +27,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6; /* Added for better readability */
 }
 
 .container {
@@ -43,45 +44,60 @@ body {
   position: absolute;
   top: 1em;
   right: 1em;
-  padding: 0.5em;
+  padding: 0.5em 1em; /* Adjusted padding */
   font-size: 0.8em;
+  background-color: var(--primary-color); /* Added theme color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 10; /* Ensure it stays on top */
+}
+
+#theme-toggle:hover {
+  background-color: var(--primary-color-hover);
 }
 
 h1 {
   text-align: center;
+  margin-top: 2em; /* Added margin to push it down from the toggle */
+  margin-bottom: 1em;
 }
 
 form div {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em; /* Increased spacing between form elements */
 }
 
 label {
   display: block;
   margin-bottom: 0.5em;
+  font-weight: bold; /* Make labels stand out */
 }
 
 input[type="text"],
 input[type="number"],
 input[type="file"] {
   width: 100%;
-  padding: 0.5em;
+  padding: 0.8em; /* Increased padding */
   box-sizing: border-box;
   background-color: var(--container-bg-color);
   color: var(--text-color);
   border: 1px solid var(--border-color);
+  border-radius: 4px;
 }
 
 .upload-area {
-  margin-top: 1em;
+  margin-top: 1.5em; /* Increased margin */
   text-align: center;
 }
 
 .upload-area input[type="file"] {
-  width: auto; /* Allow input to size based on content or padding */
-  display: inline-block; /* Center the input itself */
+  width: auto;
+  display: inline-block;
+  padding: 0.5em; /* Smaller padding for file input */
 }
 
-button {
+form button[type="submit"] { /* Specific selector for submit button */
   width: 100%;
   padding: 0.75em 1.5em;
   background-color: var(--primary-color);
@@ -90,15 +106,17 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
+  margin-top: 1em; /* Added margin-top for spacing */
 }
 
-button:hover {
+form button[type="submit"]:hover {
   background-color: var(--primary-color-hover);
 }
 
 hr {
   margin: 2em 0;
-  border-color: var(--border-color);
+  border: none; /* Removed default border */
+  border-top: 1px solid var(--border-color); /* Added themed border */
 }
 
 a {
@@ -106,6 +124,7 @@ a {
   text-align: center;
   text-decoration: none;
   color: var(--primary-color);
+  margin-top: 1em; /* Added margin-top for spacing */
 }
 
 a:hover {
@@ -120,22 +139,28 @@ img {
 
 .profile-display {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: flex-start; /* Changed to flex-start for better alignment */
   margin: 2em 0;
+  gap: 1em; /* Added gap for spacing between flex items */
 }
 
-[id$="-preview-container"] {
+[id$="-preview-container"], #avatar-container {
   flex-basis: 45%;
+  min-width: 280px; /* Ensure minimum width for each column */
   display: flex;
-  flex-direction: column; /* To stack image and upload area vertically */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1em; /* Added padding */
+  border: 1px solid var(--border-color); /* Added border */
+  border-radius: 8px;
 }
 
 [id$="-preview"] {
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 180px; /* Slightly smaller for better fit */
+  max-height: 180px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
 }
@@ -144,6 +169,9 @@ img {
   height: var(--avatar-height);
   transform: scaleX(var(--avatar-width-scale));
   transition: height 0.3s, transform 0.3s;
+  display: flex; /* Added flex to position head/body */
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .avatar-head {
@@ -151,7 +179,7 @@ img {
   aspect-ratio: 1 / 1;
   background-color: var(--text-color);
   border-radius: 50%;
-  margin: 0 auto;
+  margin: 0 auto 5%; /* Adjusted margin */
 }
 
 .avatar-body {
@@ -162,12 +190,25 @@ img {
   margin: 0 auto;
 }
 
-@media (min-width: 600px) {
-  body {
-    padding: 2em;
+@media (max-width: 600px) { /* Adjustments for smaller screens */
+  .profile-display {
+    flex-direction: column; /* Stack vertically */
+    align-items: stretch;
   }
 
-  button {
-    width: auto;
+  [id$="-preview-container"], #avatar-container {
+    flex-basis: 100%;
+    min-width: unset; /* Remove min-width */
+    margin-bottom: 1em;
+  }
+
+  h1 {
+    margin-top: 1em;
+  }
+
+  #theme-toggle {
+    position: static; /* Make it flow with content */
+    width: 100%;
+    margin-bottom: 1em;
   }
 }
