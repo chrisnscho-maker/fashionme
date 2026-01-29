@@ -71,6 +71,16 @@ input[type="file"] {
   border: 1px solid var(--border-color);
 }
 
+.upload-area {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.upload-area input[type="file"] {
+  width: auto; /* Allow input to size based on content or padding */
+  display: inline-block; /* Center the input itself */
+}
+
 button {
   width: 100%;
   padding: 0.75em 1.5em;
@@ -115,9 +125,10 @@ img {
   margin: 2em 0;
 }
 
-[id$="-preview-container"], #avatar-container {
+[id$="-preview-container"] {
   flex-basis: 45%;
   display: flex;
+  flex-direction: column; /* To stack image and upload area vertically */
   justify-content: center;
   align-items: center;
 }
