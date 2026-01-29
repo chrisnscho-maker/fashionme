@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Details</title>
+  <link href='/style.css' rel='stylesheet'>
+</head>
+<body>
+  <h1>Advanced Details</h1>
+  <form>
+    <div>
+      <label for="bust-shot">Bust Shot:</label>
+      <input type="file" id="bust-shot" name="bust-shot" accept="image/*">
+    </div>
+    <div id="bust-shot-preview-container">
+      <img id="bust-shot-preview" src="placeholder.svg" alt="Bust shot preview">
+    </div>
+    <div>
+      <label for="lower-body-shot">Lower Body Shot:</label>
+      <input type="file" id="lower-body-shot" name="lower-body-shot" accept="image/*">
+    </div>
+    <div id="lower-body-shot-preview-container">
+      <img id="lower-body-shot-preview" src="placeholder.svg" alt="Lower body shot preview">
+    </div>
+    <div>
+      <label for="full-body-shot">Full Body Shot:</label>
+      <input type="file" id="full-body-shot" name="full-body-shot" accept="image/*">
+    </div>
+    <div id="full-body-shot-preview-container">
+      <img id="full-body-shot-preview" src="placeholder.svg" alt="Full body shot preview">
+    </div>
+    <button type="submit">Save</button>
+  </form>
+  <hr>
+  <a href="index.html">Back to Profile</a>
+  <script defer type="text/javascript" src="/main.js"></script>
+</body>
+</html>
