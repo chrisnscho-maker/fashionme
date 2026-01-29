@@ -1,6 +1,21 @@
 body {
   font-family: sans-serif;
-  margin: 2em;
+  margin: 0;
+  padding: 1em;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
 }
 
 form div {
@@ -12,19 +27,23 @@ label {
   margin-bottom: 0.5em;
 }
 
-input {
+input[type="text"],
+input[type="number"],
+input[type="file"] {
   width: 100%;
   padding: 0.5em;
   box-sizing: border-box;
 }
 
 button {
+  width: 100%;
   padding: 0.75em 1.5em;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 1em;
 }
 
 button:hover {
@@ -36,10 +55,41 @@ hr {
 }
 
 a {
+  display: block;
+  text-align: center;
   text-decoration: none;
   color: #007bff;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+[id$="-preview-container"] {
+  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+}
+
+[id$="-preview"] {
+  max-width: 200px;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 2em;
+  }
+
+  button {
+    width: auto;
+  }
 }
